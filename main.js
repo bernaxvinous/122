@@ -9,7 +9,7 @@ var recognition = new SpeechRecognition();
 
 function start()
 {
-    document.getElementById("status").innerHTML = "O sistema está ouvindo, pode falar"
+    document.getElementById("status").innerHTML = "O sistema está ouvindo, pode falar";
     recognition.start();
 }
 recognition.onresult = function(event) {
@@ -17,22 +17,22 @@ recognition.onresult = function(event) {
 
     var content = event.results[0][0].transcript;
 
-    document.getElementById("status").innerHTML = "A fala foi reconhcida como:" + content;
+    document.getElementById("status").innerHTML = "A fala foi reconhecida como:" + content;
 
-    if(content =="circulo")
+    if(content =="círculo")
     {
         x = Math.floor(Math.random() * 900);
         y = Math.floor(Math.random() * 600);
-        document.getElementById("status").innerHTML = "desenhandop um circulo";
+        document.getElementById("status").innerHTML = "desenhando um círculo";
         drawCircle = "set";
 
     }
-    if(content =="retangulo")
+    if(content =="retângulo")
     {
         
         x = Math.floor(Math.random() * 900);
         y = Math.floor(Math.random() * 600);
-        document.getElementById("status").innerHTML = "desenhandop um retangulo";
+        document.getElementById("status").innerHTML = "desenhando um retângulo";
         drawRect = "set";
 
     }
@@ -47,12 +47,14 @@ function draw(){
 {
 radius = Math.floor(Math.random() * 100);
 circle(x, y, radius);
-document.getElementById("status").innerHTML = "um circulo foi desenhado. ";
+document.getElementById("status").innerHTML = "um círculo foi desenhado. ";
 drawCircle = "";
 }
 
 if(drawRect == "set")
-    recognition(x,y,70,50);
-document.getElementById("status").innerHTML = "um retangulo foi desenhado. ";
+{
+    rect(x,y,70,50);
+document.getElementById("status").innerHTML = "um retângulo foi desenhado. ";
 drawRect = "";
+}
 }
